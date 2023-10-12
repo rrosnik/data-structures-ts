@@ -1,6 +1,6 @@
 {
   "name": "predefined-ds",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "A repository for storing templates of implementing data structures in JavaScript and typescript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
