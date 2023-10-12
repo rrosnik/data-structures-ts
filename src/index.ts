@@ -1,5 +1,7 @@
 export * from "./tree/Tree"
 export * from "./tree/TreeNode"
+export * from "./tree/xml/Xml"
+export * from "./tree/xml/XmlNode"
 
 
 export * from "./lists/CircularLinkedList/CircularLinkedList"

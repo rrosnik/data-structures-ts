@@ -6,6 +6,9 @@ export default class Tree<T> {
     }
 
 
+    /** returns the root element */
+    get root(): TreeNode<T> { return this._root }
+
     /**
      * it traverse all the treenodes - Breadth-First Search
      * @param {(node:TreeNode<T>):void} callback 
