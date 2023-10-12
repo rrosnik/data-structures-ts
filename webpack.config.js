@@ -2,17 +2,18 @@ const path = require("path")
 
 
 /** @type {import("webpack").Configuration} */
-module.export = {
+module.exports = {
+    mode: "production",
     entry: "./src/index.ts",
-    devtool: "resource-map",
+    devtool: "source-map",
     resolve: {
         extensions: [".ts", ".js"]
     },
     module: {
         rules: [{
             test: /\.ts$/,
-            exclude: /node_modules/,
-            loader: "ts-loader"
+            use: "ts-loader",
+            exclude: /node_modules/
         }]
     },
     output: {
@@ -25,6 +26,7 @@ module.export = {
                 commonjs: "data-structures-ts",
                 root: "data-structures-ts"
             }
-        }
+        },
+        globalObject: "globalThis"
     }
 }

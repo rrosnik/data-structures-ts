@@ -1,11 +1,9 @@
 {
-    "include": [
-        "./src"
-    ],
+
     "compilerOptions": {
-        "module": "UMD",
+        "outDir": "./dist/",
         "declaration": true,
-        "declarationDir": "dist/typings",
+        "declarationDir": "./dist/typings",
         "declarationMap": true,
         "allowJs": true,
     },
