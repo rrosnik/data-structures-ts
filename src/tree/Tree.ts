@@ -1,6 +1,6 @@
-import TreeNode from "./TreeNode";
+import { TreeNode } from "./TreeNode";
 
-export default class Tree<T> {
+export class Tree<T> {
     private _root: TreeNode<T>;
     constructor() {
     }
@@ -35,5 +35,3 @@ export default class Tree<T> {
         }
     }
 }
-
-export { Tree }

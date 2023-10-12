@@ -1,7 +1,7 @@
-import CircularLinkedListNode from "./CircularLinkedListNode";
+import { CircularLinkedListNode } from "./CircularLinkedListNode";
 
 // export default class CircularLinkedList<T> extends Array<T> {
-export default class CircularLinkedList<T> {
+export class CircularLinkedList<T> {
 
     private _list: Array<CircularLinkedListNode<T>> = []
     private _head: CircularLinkedListNode<T> | null
@@ -170,5 +170,3 @@ export default class CircularLinkedList<T> {
 
 
 }
-
-export { CircularLinkedList }

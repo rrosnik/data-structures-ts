@@ -2,7 +2,7 @@
 /**
  * holds any element and connects it to the other element
  */
-export default class CircularLinkedListNode<T> {
+export class CircularLinkedListNode<T> {
     private _element: T;
     private _next: CircularLinkedListNode<T>;
     private _prev: CircularLinkedListNode<T>;
@@ -41,5 +41,4 @@ export default class CircularLinkedListNode<T> {
     get element(): T { return this._element }
 }
 
-export { CircularLinkedListNode }
 

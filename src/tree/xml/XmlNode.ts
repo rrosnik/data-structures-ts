@@ -1,7 +1,6 @@
-import Tree from "../Tree";
-import TreeNode from "../TreeNode";
+import { TreeNode } from "../TreeNode";
 
-export default class XmlNode extends TreeNode<any> {
+export class XmlNode extends TreeNode<any> {
 
     private _attributes: Map<string, string>;
 
@@ -19,6 +18,5 @@ export default class XmlNode extends TreeNode<any> {
 
 }
 
-export { XmlNode }
 
 
