@@ -1,11 +1,12 @@
 {
-  "name": "data-structures-ts",
+  "name": "predefined-ds",
   "version": "1.0.0",
   "description": "A repository for storing templates of implementing data structures in JavaScript and typescript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "./dist"
+    "./dist/*.js",
+    "./dist/*.ts"
   ],
   "scripts": {
     "build": "webpack",

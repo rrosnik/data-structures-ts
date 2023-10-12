@@ -24,7 +24,7 @@ module.exports = {
             }, stats => {
                 var dts = require('dts-bundle');
                 dts.bundle({
-                    name: "data-structures-ts",
+                    name: "predefined-ds",
                     main: './dist/typings/index.d.ts',
                     out: '../index.d.ts',
                     removeSource: true,
@@ -39,9 +39,9 @@ module.exports = {
         library: {
             type: "umd",
             name: {
-                amd: "data-structures-ts",
-                commonjs: "data-structures-ts",
-                root: "data-structures-ts"
+                amd: "predefined-ds",
+                commonjs: "predefined-ds",
+                root: "predefined-ds"
             }
         },
         globalObject: "globalThis"
