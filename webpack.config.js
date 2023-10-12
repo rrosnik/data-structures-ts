@@ -1,3 +1,4 @@
+const dts = require("dts-bundle")
 const path = require("path")
 
 
@@ -13,9 +14,25 @@ module.exports = {
         rules: [{
             test: /\.ts$/,
             use: "ts-loader",
-            exclude: /node_modules/
+            exclude: /node_modules/,
         }]
     },
+    plugins: [
+        function () {
+            this.hooks.done.tap({
+                name: "dts-bundler"
+            }, stats => {
+                var dts = require('dts-bundle');
+                dts.bundle({
+                    name: "data-structures-ts",
+                    main: './dist/typings/index.d.ts',
+                    out: '../index.d.ts',
+                    removeSource: true,
+                    outputAsModuleFolder: true // to use npm in-package typings
+                });
+            })
+        }
+    ],
     output: {
         filename: "index.js",
         path: path.resolve(__dirname, "dist"),
