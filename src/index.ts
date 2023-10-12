@@ -6,3 +6,5 @@ export * from "./tree/xml/XmlNode"
 
 export * from "./lists/CircularLinkedList/CircularLinkedList"
 export * from "./lists/CircularLinkedList/CircularLinkedListNode"
+export * from "./lists/DoublyLinkedList/DoublyLinkedList"
+export * from "./lists/DoublyLinkedList/DoublyLinkedListNode"
