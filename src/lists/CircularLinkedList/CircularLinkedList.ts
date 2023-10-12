@@ -39,15 +39,15 @@ export class CircularLinkedList<T> {
 
 
     /**
-     * adds en element to the end of the list
-     * @param {T} element 
+     * adds en value to the end of the list
+     * @param {T} value 
      * @returns {this}
      */
-    add(element): this {
+    add(value): this {
         // creates a new node
-        var node = new CircularLinkedListNode(element);
+        var node = new CircularLinkedListNode(value);
 
-        // if list is Empty add the element and make it head
+        // if list is Empty add the value and make it head
         if (this._head == null) {
             this._head = node;
             this._head.prev = node;
@@ -66,17 +66,17 @@ export class CircularLinkedList<T> {
     }
 
     /**
-     * insert element at the position index of the list
-     * @param {T} element 
+     * insert value at the position index of the list
+     * @param {T} value 
      * @param {number} index 
      * @returns {this}
      */
-    insertAt(element: T, index: number): this {
+    insertAt(value: T, index: number): this {
         if (index < 0 || index > this.length)
             throw new Error("CircularLinkedList.insertAt | index i out of range")
         else {
             // creates a new CircularLinkedListNode
-            var node = new CircularLinkedListNode(element);
+            var node = new CircularLinkedListNode(value);
             var curr, prev;
 
             curr = this._head;
@@ -90,7 +90,7 @@ export class CircularLinkedList<T> {
                 curr = curr.next;
             }
 
-            // adding an element
+            // adding an value
             node.next = curr;
             node.prev = prev;
             if (curr) curr.prev = node;
@@ -103,7 +103,7 @@ export class CircularLinkedList<T> {
     }
 
     /**
-     * removes an element from the specified location
+     * removes an value from the specified location
      * @param {number} index 
      * @returns {CircularLinkedListNode<T>}
      */
@@ -127,12 +127,12 @@ export class CircularLinkedList<T> {
     }
 
     /**
-     * removes a given element from the list - first matched element
-     * @param {T} element 
+     * removes a given value from the list - first matched value
+     * @param {T} value 
      * @returns {CircularLinkedListNode<T>}
      */
-    removeElement(element: T): CircularLinkedListNode<T> | -1 {
-        const index: number = this.indexOf(element)
+    removeValue(value: T): CircularLinkedListNode<T> | -1 {
+        const index: number = this.indexOf(value)
         if (index === -1) return -1;
 
         var curr: CircularLinkedListNode<T> = this._list.at(index),
@@ -149,11 +149,11 @@ export class CircularLinkedList<T> {
     }
 
     /**
-     * Returns the index of the first element, otherwise -1
-     * @param {T} element 
+     * Returns the index of the first value, otherwise -1
+     * @param {T} value 
      * @returns {number}
      */
-    indexOf(element: T) { return this._list.findIndex(n => n.element === element) }
+    indexOf(value: T) { return this._list.findIndex(n => n.value === value) }
 
     /**
      * checks the list for empty
@@ -166,7 +166,10 @@ export class CircularLinkedList<T> {
      */
     get length(): number { return this._list.length }
 
-    toArray(): Array<T> { return this._list.map(i => i.element) }
+    toArray(): Array<T> { return this._list.map(i => i.value) }
 
 
+    forEach(callback: (value: CircularLinkedListNode<T>, index: number, array: CircularLinkedListNode<T>[]) => void): void {
+        this._list.forEach(callback)
+    }
 }

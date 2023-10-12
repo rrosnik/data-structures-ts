@@ -1,44 +1,44 @@
 
 /**
- * holds any element and connects it to the other element
+ * holds any value and connects it to the other value
  */
 export class CircularLinkedListNode<T> {
-    private _element: T;
+    private _value: T;
     private _next: CircularLinkedListNode<T>;
     private _prev: CircularLinkedListNode<T>;
 
-    constructor(element: T) {
-        this._element = element;
+    constructor(value: T) {
+        this._value = value;
     }
 
     /**
-     * returns next element node
+     * returns next value node
      * @returns {CircularLinkedListNode<T>}
      */
     get next(): CircularLinkedListNode<T> { return this._next }
 
 
     /**
-     * sets next element for this
+     * sets next value for this
      */
     set next(value: CircularLinkedListNode<T>) { this._next = value }
 
 
     /**
-     * returns previous element node
+     * returns previous value node
      * @returns {CircularLinkedListNode<T>}
      */
     get prev(): CircularLinkedListNode<T> { return this._prev }
 
     /**
-     * sets previous element for this
+     * sets previous value for this
      */
     set prev(value: CircularLinkedListNode<T>) { this._prev = value }
 
     /**
-     * returns current element
+     * returns current value
      */
-    get element(): T { return this._element }
+    get value(): T { return this._value }
 }
 
 

@@ -39,15 +39,15 @@ export class DoublyLinkedList<T>{
 
 
     /**
-     * adds en element to the end of the list
-     * @param {T} element 
+     * adds en value to the end of the list
+     * @param {T} value 
      * @returns {this}
      */
-    add(element): this {
+    add(value): this {
         // creates a new node
-        var node = new DoublyLinkedListNode(element);
+        var node = new DoublyLinkedListNode(value);
 
-        // if list is Empty add the element and make it head
+        // if list is Empty add the value and make it head
         if (this._head == null) {
             this._head = node;
         } else {
@@ -66,17 +66,17 @@ export class DoublyLinkedList<T>{
 
 
     /**
-     * insert element at the position index of the list
-     * @param {T} element 
+     * insert value at the position index of the list
+     * @param {T} value 
      * @param {number} index 
      * @returns {this}
      */
-    insertAt(element: T, index: number): this {
+    insertAt(value: T, index: number): this {
         if (index < 0 || index > this.length)
             throw new Error("CircularLinkedList.insertAt | index i out of range")
         else {
             // creates a new DoublyLinkedListNode
-            var node = new DoublyLinkedListNode(element);
+            var node = new DoublyLinkedListNode(value);
             var curr, prev;
 
             curr = this._head;
@@ -90,7 +90,7 @@ export class DoublyLinkedList<T>{
                 curr = curr.next;
             }
 
-            // adding an element
+            // adding an value
             node.next = curr;
             node.prev = prev;
             if (curr) curr.prev = node;
@@ -103,7 +103,7 @@ export class DoublyLinkedList<T>{
     }
 
     /**
-     * removes an element from the specified location
+     * removes an value from the specified location
      * @param {number} index 
      * @returns {DoublyLinkedListNode<T>}
      * @throws {Error}
@@ -124,21 +124,21 @@ export class DoublyLinkedList<T>{
     }
 
     /**
-     * removes a given element from the list - first matched element
-     * @param {T} element 
+     * removes a given value from the list - first matched value
+     * @param {T} value 
      * @returns {DoublyLinkedListNode<T>}
      */
-    removeElement(element: T): DoublyLinkedListNode<T> {
-        const index: number = this.indexOf(element)
+    removeValue(value: T): DoublyLinkedListNode<T> {
+        const index: number = this.indexOf(value)
         return this.removeAt(index)
     }
 
     /**
-     * Returns the index of the first element, otherwise -1
-     * @param {T} element 
+     * Returns the index of the first value, otherwise -1
+     * @param {T} value 
      * @returns {number}
      */
-    indexOf(element: T) { return this._list.findIndex(n => n.element === element) }
+    indexOf(value: T) { return this._list.findIndex(n => n.value === value) }
 
     /**
      * checks the list for empty
@@ -151,6 +151,12 @@ export class DoublyLinkedList<T>{
      */
     get length(): number { return this._list.length }
 
-    toArray(): Array<T> { return this._list.map(i => i.element) }
+
+    toArray(): Array<T> { return this._list.map(i => i.value) }
+
+
+    forEach(callback: (value: DoublyLinkedListNode<T>, index: number, array: DoublyLinkedListNode<T>[]) => void): void {
+        this._list.forEach(callback)
+    }
 
 }

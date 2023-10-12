@@ -2,42 +2,42 @@
 export class DoublyLinkedListNode<T> {
 
 
-    private _element: T;
+    private _value: T;
     private _next: DoublyLinkedListNode<T>;
     private _prev: DoublyLinkedListNode<T>;
 
-    constructor(element: T) {
-        this._element = element;
+    constructor(value: T) {
+        this._value = value;
     }
 
     /**
-     * returns next element node
+     * returns next value node
      * @returns {DoublyLinkedListNode<T>}
      */
     get next(): DoublyLinkedListNode<T> { return this._next }
 
 
     /**
-     * sets next element for this
+     * sets next value for this
      */
     set next(value: DoublyLinkedListNode<T>) { this._next = value }
 
 
     /**
-     * returns previous element node
+     * returns previous value node
      * @returns {DoublyLinkedListNode<T>}
      */
     get prev(): DoublyLinkedListNode<T> { return this._prev }
 
     /**
-     * sets previous element for this
+     * sets previous value for this
      */
     set prev(value: DoublyLinkedListNode<T>) { this._prev = value }
 
     /**
-     * returns current element
+     * returns current value
      */
-    get element(): T { return this._element }
+    get value(): T { return this._value }
 }
 
 
