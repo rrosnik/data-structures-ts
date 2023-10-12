@@ -172,4 +172,9 @@ export class CircularLinkedList<T> {
     forEach(callback: (value: CircularLinkedListNode<T>, index: number, array: CircularLinkedListNode<T>[]) => void): void {
         this._list.forEach(callback)
     }
+
+    map(callback: (value: CircularLinkedListNode<T>, index: number, array: CircularLinkedListNode<T>[]) => any): any[] {
+        return this._list.map(callback)
+    }
 }
+

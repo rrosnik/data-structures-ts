@@ -159,4 +159,7 @@ export class DoublyLinkedList<T>{
         this._list.forEach(callback)
     }
 
+    map(callback: (value: DoublyLinkedListNode<T>, index: number, array: DoublyLinkedListNode<T>[]) => any): any[] {
+        return this._list.map(callback)
+    }
 }
