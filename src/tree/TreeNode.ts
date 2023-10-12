@@ -1,4 +1,4 @@
-class TreeNode<T> {
+export default class TreeNode<T> {
 
     private _value: T;
     private _children: Array<TreeNode<T>> = []
@@ -38,3 +38,5 @@ class TreeNode<T> {
         return this
     }
 }
+
+export { TreeNode }
