@@ -15,6 +15,16 @@ export class Queue<T> {
     enqueue(item: T) { this._items.push(item); }
 
     /**
+     * adds elements to the front of the line queue
+     * @param {Array<T>} items 
+     */
+    cutTheLine(...items: Array<T>): this {
+        this._items.unshift()
+        return this
+    }
+
+
+    /**
      * removing element from the queue
      * returns undefined when called
      * on empty queue
@@ -30,13 +40,11 @@ export class Queue<T> {
      */
     peek(): T { return this._items[0]; }
 
-
     /**
      * return true if the queue is empty.
      * @returns {boolean} return boolean
      */
     isEmpty(): boolean { return this._items.length == 0; }
-
 
     /**
      * it return the legth of Queue
@@ -46,9 +54,7 @@ export class Queue<T> {
     /**
      * clear all the elements of the queue
      */
-    clear(): void {
-
-    }
+    clear(): void { this._items = [] }
 
     forEach(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void {
         this._items.forEach(callbackfn);
