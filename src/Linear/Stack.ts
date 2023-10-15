@@ -1,3 +1,4 @@
+import { Queue } from "./Queue";
 
 export class Stack<T>  {
 
@@ -62,6 +63,10 @@ export class Stack<T>  {
         return this._items.reduce(callbackfn);
     }
 
-    
+    /**
+     * converts the stack to a queue
+     * @returns {Queue<T>}
+     */
+    toQueue(): Queue<T> { return new Queue(...this._items) }
 
 }
