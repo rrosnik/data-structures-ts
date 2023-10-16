@@ -1,7 +1,8 @@
 export class TreeNode<T> {
 
     private _value: T;
-    private _children: Array<TreeNode<T>> = []
+    protected _children: Array<TreeNode<T>> = []
+    protected _parent: this | undefined
 
     constructor(value: T) {
         this._value = value;
@@ -10,10 +11,18 @@ export class TreeNode<T> {
     /** returns an array including all children of the treenode */
     get children(): Array<TreeNode<T>> { return this._children }
 
+    /** returns the parent of the node */
+    get parent(): this { return this.parent }
+
+    /** returns the root node of the tree */
+    get root(): this {
+        if (this.parent) return this.parent.root
+        return this
+    }
+
     level() { }
     depth() { }
     height() { }
-    parent() { }
     childs() { }
 
     /**
@@ -21,8 +30,8 @@ export class TreeNode<T> {
      * @param {T} child
      * @returns {TreeNode} 
      */
-    add(child: T): this {
-        this._children.push(new TreeNode(child))
+    add<U extends TreeNode<T>>(child: U): this {
+        this._children.push(child)
         return this
     }
 
@@ -31,9 +40,9 @@ export class TreeNode<T> {
      * @param {T} child 
      * @returns {TreeNode}
      */
-    remove(child: T): this {
+    remove(child: TreeNode<T>): this {
         this._children = this._children.filter((node) => {
-            return node._value !== child;
+            return node !== child;
         })
         return this
     }
