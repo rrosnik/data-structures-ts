@@ -2,12 +2,23 @@ import { TreeNode } from "./TreeNode";
 
 export class Tree<T> {
     private _root: TreeNode<T>;
-    constructor() {
-    }
 
+    constructor(root?: TreeNode<T>) {
+        if (root) this.root = root
+    }
 
     /** returns the root element */
     get root(): TreeNode<T> { return this._root }
+
+    /** sets root value */
+    set root(value: TreeNode<T>) { this._root = value }
+
+    /**
+     * 
+     * @param {TreeNode<T>}value 
+     * @returns {this}
+     */
+    setRoot(value: TreeNode<T>): this { this.root = value; return this }
 
     /**
      * it traverse all the treenodes - Breadth-First Search
