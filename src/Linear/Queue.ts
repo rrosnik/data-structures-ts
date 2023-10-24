@@ -2,7 +2,7 @@ import { Stack } from './Stack'
 
 export class Queue<T> {
 
-    private _items: Array<T>
+    private _items: Array<T> = []
 
     constructor(...items: Array<T>) {
         if (items.length) this._items.push(...items)

@@ -3,9 +3,10 @@ import { ITreeNode } from './ITreeNode'
 
 export class Tree<T> implements ITree<T>{
     private _root: ITreeNode<T>
-    constructor() {
-    }
 
+    constructor(root?: ITreeNode<T>) {
+        if (root) this.root = root
+    }
 
 
     get root(): ITreeNode<T> { return this._root }
