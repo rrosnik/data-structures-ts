@@ -12,14 +12,14 @@ export interface ITreeNode<T> {
     /**
      * adds a child to the treeNode's children 
      * @param {T} child
-     * @returns {TreeNode} 
+     * @returns {ITreeNode<T>}
      */
     add(child: ITreeNode<T>): this
 
     /**
      * removes a child from treeNode's children 
      * @param {T} child 
-     * @returns {ITreeNode}
+     * @returns {ITreeNode<T>}
      */
     remove(child: ITreeNode<T>): this
 }
