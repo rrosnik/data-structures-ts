@@ -1,5 +1,5 @@
-import { ITree } from "../ITree";
-import { XmlNode } from "./XmlNode";
+import { ITree } from '../ITree'
+import { XmlNode } from './XmlNode'
 
 export class Xml implements ITree<Element> {
 

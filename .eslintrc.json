@@ -19,7 +19,7 @@
     "rules": {
         "indent": [
             "error",
-            "tab"
+            4
         ],
         "linebreak-style": [
             "error",
@@ -32,6 +32,7 @@
         "semi": [
             "error",
             "never"
-        ]
+        ],
+        "@typescript-eslint/no-explicit-any": "off"
     }
 }

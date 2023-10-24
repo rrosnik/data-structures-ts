@@ -1,4 +1,4 @@
-import { DoublyLinkedListNode } from "./DoublyLinkedListNode";
+import { DoublyLinkedListNode } from './DoublyLinkedListNode'
 
 // linkedlist class
 export class DoublyLinkedList<T>{
@@ -34,7 +34,7 @@ export class DoublyLinkedList<T>{
      * @returns {DoublyLinkedListNode<T>}
      */
     at(index: number): DoublyLinkedListNode<T> {
-        return this._list.at(index);
+        return this._list.at(index)
     }
 
 
@@ -45,16 +45,16 @@ export class DoublyLinkedList<T>{
      */
     add(value): this {
         // creates a new node
-        var node = new DoublyLinkedListNode(value);
+        const node = new DoublyLinkedListNode(value)
 
         // if list is Empty add the value and make it head
         if (this._head == null) {
-            this._head = node;
+            this._head = node
         } else {
-            var current: DoublyLinkedListNode<T> = this._list.at(-1);
+            const current: DoublyLinkedListNode<T> = this._list.at(-1)
             // add node
-            current.next = node;
-            node.prev = current;
+            current.next = node
+            node.prev = current
         }
         this._list.push(node)
 
@@ -73,28 +73,28 @@ export class DoublyLinkedList<T>{
      */
     insertAt(value: T, index: number): this {
         if (index < 0 || index > this.length)
-            throw new Error("CircularLinkedList.insertAt | index i out of range")
+            throw new Error('CircularLinkedList.insertAt | index i out of range')
         else {
             // creates a new DoublyLinkedListNode
-            var node = new DoublyLinkedListNode(value);
-            var curr, prev;
+            const node = new DoublyLinkedListNode(value)
+            let curr, prev
 
-            curr = this._head;
-            prev = curr?.prev;
-            var it = 0;
+            curr = this._head
+            prev = curr?.prev
+            let it = 0
 
             // iterate over the list to find the position to insert
             while (it < index) {
-                it++;
-                prev = curr;
-                curr = curr.next;
+                it++
+                prev = curr
+                curr = curr.next
             }
 
             // adding an value
-            node.next = curr;
-            node.prev = prev;
-            if (curr) curr.prev = node;
-            if (prev) prev.next = node;
+            node.next = curr
+            node.prev = prev
+            if (curr) curr.prev = node
+            if (prev) prev.next = node
             this._list.splice(index, 0, node)
         }
 
@@ -110,7 +110,7 @@ export class DoublyLinkedList<T>{
      */
     removeAt(index): DoublyLinkedListNode<T> {
 
-        var curr: DoublyLinkedListNode<T> = this._list.at(index),
+        const curr: DoublyLinkedListNode<T> = this._list.at(index),
             prev: DoublyLinkedListNode<T> = curr?.prev,
             next: DoublyLinkedListNode<T> = curr?.next
 

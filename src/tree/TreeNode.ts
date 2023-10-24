@@ -1,13 +1,13 @@
-import { ITreeNode } from "./ITreeNode";
+import { ITreeNode } from './ITreeNode'
 
 export class TreeNode<T> implements ITreeNode<T> {
 
-    private _value: T;
+    private _value: T
     protected _children: Array<ITreeNode<T>> = []
     protected _parent: this | undefined
 
     constructor(value: T) {
-        this._value = value;
+        this._value = value
     }
 
     /** returns an array including all children of the treenode */
@@ -44,7 +44,7 @@ export class TreeNode<T> implements ITreeNode<T> {
      */
     remove(child: ITreeNode<T>): this {
         this._children = this._children.filter((node) => {
-            return node !== child;
+            return node !== child
         })
         return this
     }

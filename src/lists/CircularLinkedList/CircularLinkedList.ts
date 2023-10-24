@@ -1,4 +1,4 @@
-import { CircularLinkedListNode } from "./CircularLinkedListNode";
+import { CircularLinkedListNode } from './CircularLinkedListNode'
 
 // export default class CircularLinkedList<T> extends Array<T> {
 export class CircularLinkedList<T> {
@@ -34,7 +34,7 @@ export class CircularLinkedList<T> {
      * @returns {CircularLinkedListNode<T>}
      */
     at(index: number): CircularLinkedListNode<T> {
-        return this._list.at(index);
+        return this._list.at(index)
     }
 
 
@@ -45,18 +45,18 @@ export class CircularLinkedList<T> {
      */
     add(value): this {
         // creates a new node
-        var node = new CircularLinkedListNode(value);
+        const node = new CircularLinkedListNode(value)
 
         // if list is Empty add the value and make it head
         if (this._head == null) {
-            this._head = node;
-            this._head.prev = node;
-            this._head.next = node;
+            this._head = node
+            this._head.prev = node
+            this._head.next = node
         } else {
-            var current: CircularLinkedListNode<T> = this._list.at(-1);
+            const current: CircularLinkedListNode<T> = this._list.at(-1)
             // add node
-            current.next = node;
-            node.prev = current;
+            current.next = node
+            node.prev = current
             node.next = this._head
             this._head.prev = node
         }
@@ -73,28 +73,28 @@ export class CircularLinkedList<T> {
      */
     insertAt(value: T, index: number): this {
         if (index < 0 || index > this.length)
-            throw new Error("CircularLinkedList.insertAt | index i out of range")
+            throw new Error('CircularLinkedList.insertAt | index i out of range')
         else {
             // creates a new CircularLinkedListNode
-            var node = new CircularLinkedListNode(value);
-            var curr, prev;
+            const node = new CircularLinkedListNode(value)
+            let curr, prev
 
-            curr = this._head;
-            prev = curr?.prev;
-            var it = 0;
+            curr = this._head
+            prev = curr?.prev
+            let it = 0
 
             // iterate over the list to find the position to insert
             while (it < index) {
-                it++;
-                prev = curr;
-                curr = curr.next;
+                it++
+                prev = curr
+                curr = curr.next
             }
 
             // adding an value
-            node.next = curr;
-            node.prev = prev;
-            if (curr) curr.prev = node;
-            if (prev) prev.next = node;
+            node.next = curr
+            node.prev = prev
+            if (curr) curr.prev = node
+            if (prev) prev.next = node
             this._list.splice(index, 0, node)
         }
 
@@ -109,10 +109,10 @@ export class CircularLinkedList<T> {
      */
     removeFrom(index): CircularLinkedListNode<T> | -1 {
         if (index < 0 || index >= this.length)
-            throw new Error("CircularLinkedList.removeFrom | Please Enter a valid index");
+            throw new Error('CircularLinkedList.removeFrom | Please Enter a valid index')
         else {
 
-            var curr: CircularLinkedListNode<T> = this._list.at(index),
+            const curr: CircularLinkedListNode<T> = this._list.at(index),
                 prev: CircularLinkedListNode<T> = curr?.prev,
                 next: CircularLinkedListNode<T> = curr?.next
 
@@ -133,9 +133,9 @@ export class CircularLinkedList<T> {
      */
     removeValue(value: T): CircularLinkedListNode<T> | -1 {
         const index: number = this.indexOf(value)
-        if (index === -1) return -1;
+        if (index === -1) return -1
 
-        var curr: CircularLinkedListNode<T> = this._list.at(index),
+        const curr: CircularLinkedListNode<T> = this._list.at(index),
             prev: CircularLinkedListNode<T> = curr?.prev,
             next: CircularLinkedListNode<T> = curr?.next
 

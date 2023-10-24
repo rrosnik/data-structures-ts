@@ -1,4 +1,4 @@
-import { ITreeNode } from "./ITreeNode";
+import { ITreeNode } from './ITreeNode'
 
 export interface ITree<T> {
 
