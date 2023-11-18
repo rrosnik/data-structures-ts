@@ -43,24 +43,27 @@ export class CircularLinkedList<T> {
      * @param {T} value 
      * @returns {this}
      */
-    add(value): this {
-        // creates a new node
-        var node = new CircularLinkedListNode(value);
+    add(...values: T[]): this {
+        values.forEach(value => {
 
-        // if list is Empty add the value and make it head
-        if (this._head == null) {
-            this._head = node;
-            this._head.prev = node;
-            this._head.next = node;
-        } else {
-            var current: CircularLinkedListNode<T> = this._list.at(-1);
-            // add node
-            current.next = node;
-            node.prev = current;
-            node.next = this._head
-            this._head.prev = node
-        }
-        this._list.push(node)
+            // creates a new node
+            var node = new CircularLinkedListNode(value);
+
+            // if list is Empty add the value and make it head
+            if (this._head == null) {
+                this._head = node;
+                this._head.prev = node;
+                this._head.next = node;
+            } else {
+                var current: CircularLinkedListNode<T> = this._list.at(-1);
+                // add node
+                current.next = node;
+                node.prev = current;
+                node.next = this._head
+                this._head.prev = node
+            }
+            this._list.push(node)
+        })
 
         return this
     }
@@ -71,32 +74,37 @@ export class CircularLinkedList<T> {
      * @param {number} index 
      * @returns {this}
      */
-    insertAt(value: T, index: number): this {
+    insertAt(index: number, ...values: T[]): this {
         if (index < 0 || index > this.length)
             throw new Error("CircularLinkedList.insertAt | index i out of range")
         else {
-            // creates a new CircularLinkedListNode
-            var node = new CircularLinkedListNode(value);
-            var curr, prev;
 
-            curr = this._head;
-            prev = curr?.prev;
-            var it = 0;
+            values.reverse().forEach(value => {
 
-            // iterate over the list to find the position to insert
-            while (it < index) {
-                it++;
-                prev = curr;
-                curr = curr.next;
-            }
+                // creates a new CircularLinkedListNode
+                var node = new CircularLinkedListNode(value);
+                var curr, prev;
 
-            // adding an value
-            node.next = curr;
-            node.prev = prev;
-            if (curr) curr.prev = node;
-            if (prev) prev.next = node;
-            this._list.splice(index, 0, node)
+                curr = this._head;
+                prev = curr?.prev;
+                var it = 0;
+
+                // iterate over the list to find the position to insert
+                while (it < index) {
+                    it++;
+                    prev = curr;
+                    curr = curr.next;
+                }
+
+                // adding an value
+                node.next = curr;
+                node.prev = prev;
+                if (curr) curr.prev = node;
+                if (prev) prev.next = node;
+                this._list.splice(index, 0, node)
+            })
         }
+
 
 
         return this
