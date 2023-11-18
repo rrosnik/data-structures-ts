@@ -1,4 +1,4 @@
-import { ITreeNode } from "../ITreeNode";
+import { ITreeNode } from '../ITreeNode'
 
 export class XmlNode implements ITreeNode<Element> {
 
@@ -14,7 +14,7 @@ export class XmlNode implements ITreeNode<Element> {
             this.setAttribute(element.attributes[i].name, element.attributes[i].value)
 
         if (element.childNodes)
-            Array.from(element.childNodes).forEach((child: Element) => this.add(new XmlNode(child)));
+            Array.from(element.childNodes).forEach((child: Element) => this.add(new XmlNode(child)))
 
     }
 
@@ -42,7 +42,7 @@ export class XmlNode implements ITreeNode<Element> {
      */
     remove(child: XmlNode): this {
         this._children = this._children.filter((node) => {
-            return node !== child;
+            return node !== child
         })
         return this
     }
@@ -73,5 +73,6 @@ export class XmlNode implements ITreeNode<Element> {
      * @param {Element} child 
      * @returns {boolean}
      */
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     checkChild(child: Element): boolean { return true }
 }

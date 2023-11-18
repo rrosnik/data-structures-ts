@@ -1,4 +1,4 @@
-import { CircularLinkedListNode } from "./CircularLinkedListNode";
+import { CircularLinkedListNode } from './CircularLinkedListNode'
 
 // export default class CircularLinkedList<T> extends Array<T> {
 export class CircularLinkedList<T> {
@@ -34,7 +34,7 @@ export class CircularLinkedList<T> {
      * @returns {CircularLinkedListNode<T>}
      */
     at(index: number): CircularLinkedListNode<T> {
-        return this._list.at(index);
+        return this._list.at(index)
     }
 
 
@@ -76,7 +76,7 @@ export class CircularLinkedList<T> {
      */
     insertAt(index: number, ...values: T[]): this {
         if (index < 0 || index > this.length)
-            throw new Error("CircularLinkedList.insertAt | index i out of range")
+            throw new Error('CircularLinkedList.insertAt | index i out of range')
         else {
 
             values.reverse().forEach(value => {
@@ -117,10 +117,10 @@ export class CircularLinkedList<T> {
      */
     removeFrom(index): CircularLinkedListNode<T> | -1 {
         if (index < 0 || index >= this.length)
-            throw new Error("CircularLinkedList.removeFrom | Please Enter a valid index");
+            throw new Error('CircularLinkedList.removeFrom | Please Enter a valid index')
         else {
 
-            var curr: CircularLinkedListNode<T> = this._list.at(index),
+            const curr: CircularLinkedListNode<T> = this._list.at(index),
                 prev: CircularLinkedListNode<T> = curr?.prev,
                 next: CircularLinkedListNode<T> = curr?.next
 
@@ -141,9 +141,9 @@ export class CircularLinkedList<T> {
      */
     removeValue(value: T): CircularLinkedListNode<T> | -1 {
         const index: number = this.indexOf(value)
-        if (index === -1) return -1;
+        if (index === -1) return -1
 
-        var curr: CircularLinkedListNode<T> = this._list.at(index),
+        const curr: CircularLinkedListNode<T> = this._list.at(index),
             prev: CircularLinkedListNode<T> = curr?.prev,
             next: CircularLinkedListNode<T> = curr?.next
 

@@ -2,12 +2,12 @@
 export class DoublyLinkedListNode<T> {
 
 
-    private _value: T;
-    private _next: DoublyLinkedListNode<T>;
-    private _prev: DoublyLinkedListNode<T>;
+    private _value: T
+    private _next: DoublyLinkedListNode<T>
+    private _prev: DoublyLinkedListNode<T>
 
     constructor(value: T) {
-        this._value = value;
+        this._value = value
     }
 
     /**

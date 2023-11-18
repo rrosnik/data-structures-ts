@@ -1,15 +1,17 @@
-export class TreeNode<T> {
+import { ITreeNode } from './ITreeNode'
 
-    private _value: T;
-    protected _children: Array<TreeNode<T>> = []
+export class TreeNode<T> implements ITreeNode<T> {
+
+    private _value: T
+    protected _children: Array<ITreeNode<T>> = []
     protected _parent: this | undefined
 
     constructor(value: T) {
-        this._value = value;
+        this._value = value
     }
 
     /** returns an array including all children of the treenode */
-    get children(): Array<TreeNode<T>> { return this._children }
+    get children(): Array<ITreeNode<T>> { return this._children }
 
     /** returns the parent of the node */
     get parent(): this { return this.parent }
@@ -28,9 +30,9 @@ export class TreeNode<T> {
     /**
      * adds a child to the treeNode's children 
      * @param {T} child
-     * @returns {TreeNode} 
+     * @returns {ITreeNode<T>} 
      */
-    add<U extends TreeNode<T>>(child: U): this {
+    add(child: ITreeNode<T>): this {
         this._children.push(child)
         return this
     }
@@ -38,11 +40,11 @@ export class TreeNode<T> {
     /**
      * removes a child from treeNode's children 
      * @param {T} child 
-     * @returns {TreeNode}
+     * @returns {ITreeNode<T>}
      */
-    remove(child: TreeNode<T>): this {
+    remove(child: ITreeNode<T>): this {
         this._children = this._children.filter((node) => {
-            return node !== child;
+            return node !== child
         })
         return this
     }

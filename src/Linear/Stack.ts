@@ -1,11 +1,11 @@
-import { Queue } from "./Queue";
+import { Queue } from './Queue'
 
 export class Stack<T>  {
 
-    private _items: Array<T> = [];
+    private _items: Array<T> = []
 
     constructor(...items: Array<T>) {
-        if (items.length) this._items = items;
+        if (items.length) this._items = items
     }
 
     /**
@@ -13,7 +13,7 @@ export class Stack<T>  {
      * @param {T} item 
      */
     push(...items: Array<T>): number {
-        return this._items.push(...items);
+        return this._items.push(...items)
     }
 
     /**
@@ -21,7 +21,7 @@ export class Stack<T>  {
      * but does'nt delete it.     
      */
     peek() {
-        return this._items[this._items.length - 1];
+        return this._items[this._items.length - 1]
     }
 
     /**
@@ -29,7 +29,7 @@ export class Stack<T>  {
      * @returns {boolean} return boolean
      */
     isEmpty(): boolean {
-        return this._items.length == 0;
+        return this._items.length == 0
     }
 
     /**
@@ -38,29 +38,29 @@ export class Stack<T>  {
     * Underflow if stack is empty
     */
     pop(): T {
-        if (!this._items.length) return undefined;
-        return this._items.pop();
+        if (!this._items.length) return undefined
+        return this._items.pop()
     }
 
-    forEach(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void {
-        this._items.forEach(callbackfn);
+    forEach(callbackfn: (value: T, index: number, array: T[]) => void): void {
+        this._items.forEach(callbackfn)
     }
 
-    map<U>(callbackfn: (value: T, index: number, array: T[]) => U, thisArg?: any): U[] {
-        return this._items.map<U>(callbackfn);
+    map<U>(callbackfn: (value: T, index: number, array: T[]) => U): U[] {
+        return this._items.map<U>(callbackfn)
     }
 
     at(index: number): T | undefined {
-        return this._items[index];
-    };
+        return this._items[index]
+    }
 
     /**
      * it return the legth of Stack
      */
-    get length(): number { return this._items.length; }
+    get length(): number { return this._items.length }
 
-    reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T, initialValue?: unknown): T {
-        return this._items.reduce(callbackfn);
+    reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T): T {
+        return this._items.reduce(callbackfn)
     }
 
     /**

@@ -3,12 +3,12 @@
  * holds any value and connects it to the other value
  */
 export class CircularLinkedListNode<T> {
-    private _value: T;
-    private _next: CircularLinkedListNode<T>;
-    private _prev: CircularLinkedListNode<T>;
+    private _value: T
+    private _next: CircularLinkedListNode<T>
+    private _prev: CircularLinkedListNode<T>
 
     constructor(value: T) {
-        this._value = value;
+        this._value = value
     }
 
     /**

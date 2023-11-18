@@ -1,48 +1,39 @@
-import { TreeNode } from "./TreeNode";
+import { ITree } from './ITree'
+import { ITreeNode } from './ITreeNode'
 
-export class Tree<T> {
-    private _root: TreeNode<T>;
+export class Tree<T> implements ITree<T>{
+    private _root: ITreeNode<T>
 
-    constructor(root?: TreeNode<T>) {
+    constructor(root?: ITreeNode<T>) {
         if (root) this.root = root
     }
 
-    /** returns the root element */
-    get root(): TreeNode<T> { return this._root }
 
-    /** sets root value */
-    set root(value: TreeNode<T>) { this._root = value }
+    get root(): ITreeNode<T> { return this._root }
+    set root(value: ITreeNode<T>) { this._root = this.root }
 
-    /**
-     * 
-     * @param {TreeNode<T>}value 
-     * @returns {this}
-     */
-    setRoot(value: TreeNode<T>): this { this.root = value; return this }
 
-    /**
-     * it traverse all the treenodes - Breadth-First Search
-     * @param {(node:TreeNode<T>):void} callback 
-     */
-    traverseBF(callback: (node: TreeNode<T>) => void) {
-        const arr: Array<TreeNode<T>> = [this._root];
+    setRoot(value: ITreeNode<T>): this {
+        this.root = value
+        return this
+    }
+
+
+    traverseBF(callback: (node: ITreeNode<T>) => void) {
+        const arr: Array<ITreeNode<T>> = [this._root]
         while (arr.length) {
-            const node: TreeNode<T> = arr.shift() as TreeNode<T>;
-            arr.push(...node.children);
-            callback(node);
+            const node: ITreeNode<T> = arr.shift() as ITreeNode<T>
+            arr.push(...node.children)
+            callback(node)
         }
     }
 
-    /**
-     * it traverse all the treenodes - Depth-First Search
-     * @param {(node:TreeNode<T>):void} callback 
-     */
-    traverseDF(callback: (node: TreeNode<T>) => void) {
-        const arr = [this._root];
+    traverseDF(callback: (node: ITreeNode<T>) => void) {
+        const arr = [this._root]
         while (arr.length) {
-            const node: TreeNode<T> = arr.shift() as TreeNode<T>
-            arr.unshift(...node.children);
-            callback(node);
+            const node: ITreeNode<T> = arr.shift() as ITreeNode<T>
+            arr.unshift(...node.children)
+            callback(node)
         }
     }
 }
