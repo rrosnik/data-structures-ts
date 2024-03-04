@@ -13,3 +13,5 @@ export * from './lists/DoublyLinkedList/DoublyLinkedListNode'
 // linears
 export * from './Linear/Queue'
 export * from './Linear/Stack'
+
+export * from './fifo'
