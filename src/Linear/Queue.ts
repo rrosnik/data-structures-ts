@@ -32,6 +32,13 @@ export class Queue<T> {
      */
     dequeue(): T { return this._items.shift() }
 
+    /**
+     * returns an array of Items from the quque
+     * @param batchSize number of items to be returned
+     * @returns {T[]}
+     */
+    dequeueBatch(batchSize: number): T[] { return this._items.splice(0, batchSize) }
+
 
     /**
      * returns the Front element of
